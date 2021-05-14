@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Login To Zerodha">
+<listeners>
+<listener class-name="extentlisteners.Listeners"></listener>
+</listeners>
   <test thread-count="5" name="Basic Test">
     <classes>
       <class name="testcases.LoginTestZerodha"/>
+      <class name="testcases.DashboardTest"></class>
+      <class name="testcases.BuyTest"></class>
+<!--       <class name="testcases.SellTest"></class> -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

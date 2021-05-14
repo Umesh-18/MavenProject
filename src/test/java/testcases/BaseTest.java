@@ -12,18 +12,25 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.BuyPage;
+import pages.DashboardPage;
 import pages.LoginPage;
 import pages.LoginPageZerodha;
+import pages.SellPage;
 
 public class BaseTest {
 
 	//Prior Mandatory Methods or Operations
+	public static WebDriver driver;
 	 
-	
-	static WebDriver driver;
 	public LoginPage lp;
 	
 	public LoginPageZerodha lpz;
+	public DashboardPage db;
+	
+	public BuyPage b;
+	
+	public SellPage s;
 	
 	@BeforeSuite
 	public void initDriver() throws IOException {
@@ -50,11 +57,14 @@ public class BaseTest {
 	public void objectCreation() throws IOException{
 		lp = new LoginPage(driver);
 	    lpz = new LoginPageZerodha(driver);
+	    db = new DashboardPage(driver);
+	    b = new BuyPage(driver);
+	    s = new SellPage(driver);
 		}
 	
 	
 	
-	@AfterSuite
+	@AfterSuite(enabled=false)
 	public void tearDown() {
 		driver.quit();
 	}
